@@ -103,6 +103,9 @@ void add_patterrn(void) {
 void setup() {
 //	Serial.begin(115200);
 
+	// set pin for input on DHT22
+	pinMode(DHTPIN, INPUT);
+
 	lcd.init();
 	lcd.begin(16, 2);
 	lcd.backlight();
@@ -156,8 +159,7 @@ void loop() {
 	lcd.setCursor(0, 1);
 	lcd.print(median_light);
 
-	// dht.readTemperature();
-	int temperature = random(-10, 99);
+	int temperature = dht.readTemperature();
 	lcd.setCursor(4, 0);
 	lcd.print(temperature);
 
@@ -168,8 +170,7 @@ void loop() {
 	lcd.setCursor(4, 1);
 	lcd.print(median_temperature);
 
-	//	dht.readHumidity();
-	int humidity = random(0, 99);
+	int humidity = dht.readHumidity();
 	lcd.setCursor(7, 0);
 	lcd.print(humidity);
 
