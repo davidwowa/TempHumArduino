@@ -106,6 +106,9 @@ void setup() {
 	// set pin for input on DHT22
 	pinMode(DHTPIN, INPUT);
 
+	// LED builtin
+	pinMode(LED_BUILTIN, OUTPUT);
+
 	lcd.init();
 	lcd.begin(16, 2);
 	lcd.backlight();
@@ -139,6 +142,13 @@ void setup() {
 }
 
 void loop() {
+
+	// for clock simulation builtin LED is on in interval 1 second
+	if (time_counter % 2 == 0) {
+		digitalWrite(LED_BUILTIN, HIGH);
+	} else {
+		digitalWrite(LED_BUILTIN, LOW);
+	}
 
 	// display clear every mod4 seconds
 	if (time_counter == measurement_time || time_counter == 0
