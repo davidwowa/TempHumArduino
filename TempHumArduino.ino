@@ -8,7 +8,7 @@
 
 // defines for DHT22 humidity and temperature sensor
 #define DHTPIN 2
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 
 // constructor for lcd display with i2c driver
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
